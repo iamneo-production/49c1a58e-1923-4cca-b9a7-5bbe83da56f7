@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserModelController {
 
-    @RequestMapping("/hello")
-    public String greet() {
-        return "Good Day";
-    }
+   
+    
 }
