@@ -5,7 +5,11 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
+<<<<<<< HEAD
 		<version>2.4.5</version>
+=======
+		<version>2.4.11</version>
+>>>>>>> origin
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.examly</groupId>
@@ -14,29 +18,40 @@
 	<name>springapp</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+<<<<<<< HEAD
 		<java.version>11</java.version>
+=======
+		<java.version>8</java.version>
+>>>>>>> origin
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+=======
+>>>>>>> origin
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
+<<<<<<< HEAD
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+=======
+>>>>>>> origin
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
 		    <scope>test</scope>
@@ -57,6 +72,30 @@
 		   <artifactId>mockito-core</artifactId>
 		</dependency>
 	</dependencies>
+=======
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			
+		</dependency>
+		<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-jdbc</artifactId>
+  <version>2.1.8.RELEASE</version>
+</dependency>
+	</dependencies>
+	
+>>>>>>> origin
 
 	<build>
 		<plugins>
