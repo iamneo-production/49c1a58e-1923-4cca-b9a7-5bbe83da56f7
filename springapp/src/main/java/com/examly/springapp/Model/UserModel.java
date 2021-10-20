@@ -1,151 +1,180 @@
 package com.examly.springapp.Model;
 
 import javax.persistence.*;
+import java.util.Objects;
+import java.util.List;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "users")
-public class UserModel {
+public class UserModel implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "first_name", nullable = false, length = 40)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false, length = 40)
-    private String lastName;
-
-    @Column(nullable = false, unique = true, length = 50)
+    private Long userId;
     private String email;
-
-    @Column(name = "mobile_number", unique = true, length = 20)
-    private String mobileNumber;
-
-    @Column(nullable = false, length = 100)
     private String password;
-
-    /**
-     * Default constructor
+    private String username;
+    private String mobileNumber;
+    private Boolean active;
+    private Boolean verified;
+    private String role;
+    private boolean enabled = true;
+    /*
+     * @OneToMany(mappedBy = "userId") private List<CartModel> cart;
+     * 
+     * @OneToMany(mappedBy = "userId") private List<OrderModel> orderList;
+     * 
+     * public UserModel() {
+     * 
+     * }
+     * 
+     * public UserModel(Long userId, String email, String password, String username,
+     * String mobileNumber, Boolean active, String role, List<CartModel> cart,
+     * List<OrderModel> orderList, Boolean verified) { super(); this.userId =
+     * userId; this.email = email; this.password = password; this.username =
+     * username; this.mobileNumber = mobileNumber; this.active = active; this.role =
+     * role; this.cart = cart; this.orderList = orderList; this.verified = verified;
+     * }
      */
-    public UserModel() {
-    }
 
-    /**
-     * parameterized constructor
-     */
-    public UserModel(String firstName, String lastName, String email, String mobileNumber, String password) {
+    public UserModel(String email, String password, String username, String mobileNumber, Boolean verified) {
         super();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email.toLowerCase();
-        this.mobileNumber = mobileNumber;
+        this.email = email;
         this.password = password;
+        this.username = username;
+        this.mobileNumber = mobileNumber;
+        this.active = true;
+        this.role = "User";
+        this.verified = verified;
     }
 
-    // getters and setters
-
-    /**
-     * getter to return primary key of the relation User
-     * 
-     * @return Long id
-     */
     public Long getId() {
-        return id;
+        return userId;
     }
 
-    /**
-     * getter to return the first name of the relation User
-     * 
-     * @return String firstName
-     */
-    public String getFirstName() {
-        return firstName;
+    public void setId(Long userId) {
+        this.userId = userId;
     }
 
-    /**
-     * getter to return the last name of the relation User
-     * 
-     * @return String lastName
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * getter to return the full name of the relation User
-     * 
-     * @return String firstName + " " + lastName
-     */
-    public String getName() {
-        return firstName + " " + lastName;
-    }
-
-    /**
-     * getter to return the email of the relation User
-     * 
-     * @return String email
-     */
     public String getEmail() {
         return email;
     }
 
-    /**
-     * getter to return the mobileNumber of the relation user
-     * 
-     */
-    public String getMobileNumber() {
-        return mobileNumber;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    /**
-     * getter to return the password of the relation User
-     * 
-     * @return String password
-     */
     public String getPassword() {
         return password;
     }
 
-    /**
-     * setter to set the first name of the relation User
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * setter to set the last name of the relation User
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * setter to set the email of the relation User
-     */
-    public void setEmail(String email) {
-        this.email = email.toLowerCase();
-    }
-
-    /**
-     * setter to set the mobileNumber of the relation user
-     */
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    /**
-     * setter to set the password of the relation User
-     */
     public void setPassword(String password) {
         this.password = password;
     }
 
-    // overriding toString() method
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    /*
+     * public List<CartModel> getCart() { return cart; }
+     * 
+     * public void setCart(List<CartModel> cart) { this.cart = cart; }
+     * 
+     * public List<OrderModel> getOrderList() { return orderList; }
+     * 
+     * public void setOrderList(List<OrderModel> orderList) { this.orderList =
+     * orderList; }
+     */
+
     @Override
-    public String toString() {
-        return "User [id=" + id + ", name=" + this.getName() + ", email=" + email + ", mobile number=" + mobileNumber
-                + ", password=" + password + "]";
+    public boolean isAccountNonExpired() {
+        return enabled;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return enabled;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return enabled;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    @Override
+    public List<GrantedAuthority> getAuthorities() {
+        return List.of();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(active, email, mobileNumber, password, role, username);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        UserModel other = (UserModel) obj;
+        return Objects.equals(active, other.active) && Objects.equals(email, other.email)
+                && Objects.equals(mobileNumber, other.mobileNumber) && Objects.equals(password, other.password)
+                && Objects.equals(role, other.role) && Objects.equals(username, other.username);
+    }
+
+    public boolean isNull() {
+        if (this.email == "" || this.password == "" || this.username == "" || this.mobileNumber == ""
+                || this.active == false || this.role == "") {
+            return true;
+        }
+
+        return false;
     }
 }

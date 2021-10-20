@@ -1,6 +1,7 @@
 package com.examly.springapp.Model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "product")
@@ -8,19 +9,21 @@ public class ProductModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long productId;
 
     @Column(nullable = false, length = 100)
-    private String name;
+    private String productName;
 
     @Column(length = 500)
     private String description;
 
     @Column(length = 500)
-    private String url;
+    private String imageUrl;
 
     @Column()
     private Long quantity;
+    @Column()
+    private Long price;
 
     /**
      * default constructor
@@ -32,10 +35,10 @@ public class ProductModel {
     /**
      * parameterized constructor
      */
-    public ProductModel(String name, String description, String url, Long quantity) {
-        this.name = name;
+    public ProductModel(String productName, String description, String imageUrl, Long quantity) {
+        this.productName = productName;
         this.description = description;
-        this.url = url;
+        this.imageUrl = imageUrl;
         if (quantity < 0) {
             quantity = (long) 0;
         }
@@ -45,24 +48,24 @@ public class ProductModel {
     // getters
 
     /**
-     * returns id of the model Product
+     * returns productId of the model Product
      */
     public Long getId() {
-        return id;
+        return productId;
     }
 
     /**
-     * returns the name of the model Product
+     * returns the productName of the model Product
      */
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
     /**
-     * returns the url of the model Product
+     * returns the imageUrl of the model Product
      */
-    public String getUrl() {
-        return url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     /**
@@ -79,17 +82,59 @@ public class ProductModel {
         return quantity;
     }
 
-    // setters
-
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * returns the price of the model product
+     */
+    public Long getPrice() {
+        return price;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    // setters
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setPrice(Long price) {
+        this.price = price;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, imageUrl, price, productName, productId, quantity);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ProductModel other = (ProductModel) obj;
+        return Objects.equals(description, other.description) && Objects.equals(imageUrl, other.imageUrl)
+                && Objects.equals(price, other.price) && Objects.equals(productId, other.productId)
+                && Objects.equals(productId, other.productId) && Objects.equals(quantity, other.quantity);
+    }
+
+    public boolean isValid() {
+        if (this.imageUrl == "" || this.productName == "" || this.price < 0 || this.description == ""
+                || this.quantity < 0) {
+            return false;
+        }
+        return true;
     }
 }

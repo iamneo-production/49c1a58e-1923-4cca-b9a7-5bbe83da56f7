@@ -1,96 +1,103 @@
 package com.examly.springapp.Model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "cart")
 public class CartModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // private Long cartItemID;
 
     @Column(nullable = false, length = 100)
-    private String name;
+    private String ProductName;
     @Column(nullable = false)
-    private Long userid;
+    private Long userId;
     @Column(nullable = false)
-    private Long quantity;
+    private Long Quantity;
     @Column(nullable = false)
-    private Long price;
+    private Long Price;
+    @Column(nullable = false)
+    private Long ProductId;
 
     /**
      * default constructor
      */
     public CartModel() {
-        quantity = (long) 0;
+        Quantity = (long) 0;
     }
 
     /**
      * parameterized constructor
      */
-    public CartModel(Long userid, String name, Long price, Long quantity) {
-        this.name = name;
-        this.userid = userid;
-        this.price = price;
+    public CartModel(Long userId, String ProductName, Long Price, Long Quantity) {
+        this.ProductName = ProductName;
+        this.userId = userId;
+        this.Price = Price;
 
-        if (quantity < 0) {
-            quantity = (long) 0;
+        if (Quantity < 0) {
+            Quantity = (long) 0;
         }
-        this.quantity = quantity;
+        this.Quantity = Quantity;
     }
     // getters
 
     /**
-     * returns id of the model cart
+     * returns cartItemID of the model cart
      */
-    public Long getId() {
-        return id;
-    }
+    /*
+     * public Long getId() { return cartItemID; }
+     */
 
     /**
-     * returns the name of the model cart
+     * returns the ProductName of the model cart
      */
     public String getName() {
-        return name;
+        return ProductName;
     }
 
     /**
      * returns the Price of the model cart
      */
     public Long getPrice() {
-        return price;
+        return Price;
     }
 
     /**
      * returns the User information of the model cart
      */
     public Long getUserid() {
-        return userid;
+        return userId;
     }
 
     /**
-     * returns the quantity of the model cart
+     * returns the Quantity of the model cart
      */
     public Long getQuantity() {
-        return quantity;
+        return Quantity;
+    }
+
+    public Long getProductId() {
+        return this.ProductId;
     }
 
     // setters
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String ProductName) {
+        this.ProductName = ProductName;
     }
 
-    public void setUPrice(Long price) {
-        this.price = price;
+    public void setPrice(Long Price) {
+        this.Price = Price;
     }
 
-    public void setUser(Long userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
+    public void setQuantity(Long Quantity) {
+        this.Quantity = Quantity;
     }
 }
