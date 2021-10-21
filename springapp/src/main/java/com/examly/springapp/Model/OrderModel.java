@@ -51,16 +51,12 @@ public class OrderModel {
     }
     // getters
 
-    /**
-     * returns id of the Order cart
-     */
+   
     public Long getId() {
         return orderId;
     }
 
-    /**
-     * returns the name of the Order cart
-     */
+    
     public String getName() {
         return ProductName;
     }
@@ -72,16 +68,13 @@ public class OrderModel {
         return Price;
     }
 
-    /**
-     * returns the total Price of the Order cart
-     */
+   
     public Long getTotalPrice() {
         return totalPrice;
     }
 
-    /**
-     * returns the User information of the Order cart
-     */
+   
+    
     public Long getUserid() {
         return userId;
     }
@@ -90,16 +83,12 @@ public class OrderModel {
         return productId;
     }
 
-    /**
-     * returns the quantity of the Order cart
-     */
+    
     public Long getQuantity() {
         return quantity;
     }
 
-    /**
-     * returns the status of the Order cart
-     */
+    
     public String getstatus() {
         return Status;
     }

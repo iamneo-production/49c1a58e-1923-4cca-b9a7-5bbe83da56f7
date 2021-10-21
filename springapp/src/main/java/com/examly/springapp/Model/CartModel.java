@@ -7,9 +7,7 @@ import java.util.Objects;
 @Table(name = "cart")
 public class CartModel {
 
-    @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // private Long cartItemID;
+    
 
     @Column(nullable = false, length = 100)
     private String ProductName;
@@ -44,37 +42,22 @@ public class CartModel {
     }
     // getters
 
-    /**
-     * returns cartItemID of the model cart
-     */
-    /*
-     * public Long getId() { return cartItemID; }
-     */
-
-    /**
-     * returns the ProductName of the model cart
-     */
+    
     public String getName() {
         return ProductName;
     }
 
-    /**
-     * returns the Price of the model cart
-     */
+    
     public Long getPrice() {
         return Price;
     }
 
-    /**
-     * returns the User information of the model cart
-     */
+    
     public Long getUserid() {
         return userId;
     }
 
-    /**
-     * returns the Quantity of the model cart
-     */
+    
     public Long getQuantity() {
         return Quantity;
     }

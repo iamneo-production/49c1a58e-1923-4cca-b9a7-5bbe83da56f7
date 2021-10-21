@@ -24,8 +24,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.repository.ProductsRepository;
-import com.example.model.ProductModel;
+//import com.example.demo.repository.ProductsRepository;
+//import com.example.model.ProductModel;
 
 @SpringBootTest
 @AutoConfigureMockMvc

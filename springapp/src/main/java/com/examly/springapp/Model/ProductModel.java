@@ -45,51 +45,38 @@ public class ProductModel {
         this.quantity = quantity;
     }
 
-    // getters
-
-    /**
-     * returns productId of the model Product
-     */
+    
     public Long getId() {
         return productId;
     }
 
-    /**
-     * returns the productName of the model Product
-     */
+    
+     
     public String getProductName() {
         return productName;
     }
 
-    /**
-     * returns the imageUrl of the model Product
-     */
+    
     public String getImageUrl() {
         return imageUrl;
     }
 
-    /**
-     * returns the description of the model Product
-     */
+    
     public String getDescription() {
         return description;
     }
 
-    /**
-     * returns the quantity of the model product
-     */
+   
     public Long getQuantity() {
         return quantity;
     }
 
-    /**
-     * returns the price of the model product
-     */
+   
     public Long getPrice() {
         return price;
     }
 
-    // setters
+    
 
     public void setProductName(String productName) {
         this.productName = productName;
