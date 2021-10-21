@@ -25,6 +25,7 @@ public class UserModel implements UserDetails {
 
     public UserModel(String email, String password, String username, String mobileNumber, Boolean verified) {
         super();
+      
         this.email = email;
         this.password = password;
         this.username = username;
@@ -34,11 +35,11 @@ public class UserModel implements UserDetails {
         this.verified = verified;
     }
 
+ 
     public Long getId() {
         return userId;
     }
 
-    
 
     public String getEmail() {
         return email;
