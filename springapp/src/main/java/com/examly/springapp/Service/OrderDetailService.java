@@ -24,10 +24,6 @@ public class OrderDetailService {
         return true; // orderDetailsRepository.existsById(id);
     }
 
-    /*
-     * public void deleteOrderDetailsById(String id) { //
-     * orderDetailsRepository.deleteById(id); }
-     */
 
     public OrderDetailModel getOrderDetailsById(String id) {
         return new OrderDetailModel();// orderDetailsRepository.findById(id).get();

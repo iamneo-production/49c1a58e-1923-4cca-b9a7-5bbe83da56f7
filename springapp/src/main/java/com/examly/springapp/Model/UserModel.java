@@ -21,23 +21,7 @@ public class UserModel implements UserDetails {
     private Boolean verified;
     private String role;
     private boolean enabled = true;
-    /*
-     * @OneToMany(mappedBy = "userId") private List<CartModel> cart;
-     * 
-     * @OneToMany(mappedBy = "userId") private List<OrderModel> orderList;
-     * 
-     * public UserModel() {
-     * 
-     * }
-     * 
-     * public UserModel(Long userId, String email, String password, String username,
-     * String mobileNumber, Boolean active, String role, List<CartModel> cart,
-     * List<OrderModel> orderList, Boolean verified) { super(); this.userId =
-     * userId; this.email = email; this.password = password; this.username =
-     * username; this.mobileNumber = mobileNumber; this.active = active; this.role =
-     * role; this.cart = cart; this.orderList = orderList; this.verified = verified;
-     * }
-     */
+    
 
     public UserModel(String email, String password, String username, String mobileNumber, Boolean verified) {
         super();
@@ -52,11 +36,10 @@ public class UserModel implements UserDetails {
     }
 
  
-    public Long get userId() {
+    public Long getId() {
         return userId;
     }
 
-   
 
     public String getEmail() {
         return email;
@@ -114,16 +97,7 @@ public class UserModel implements UserDetails {
         this.role = role;
     }
 
-    /*
-     * public List<CartModel> getCart() { return cart; }
-     * 
-     * public void setCart(List<CartModel> cart) { this.cart = cart; }
-     * 
-     * public List<OrderModel> getOrderList() { return orderList; }
-     * 
-     * public void setOrderList(List<OrderModel> orderList) { this.orderList =
-     * orderList; }
-     */
+    
 
     @Override
     public boolean isAccountNonExpired() {
